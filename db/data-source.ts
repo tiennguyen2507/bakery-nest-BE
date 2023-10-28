@@ -5,11 +5,11 @@ config();
 
 export const dataSourceOptions: DataSourceOptions = {
   type: 'mysql',
-  host: process.env.DB_URL,
-  port: Number(process.env.DB_PORT),
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  host: 'db4free.net',
+  port: 3306,
+  username: 'tiennld',
+  password: '12345678',
+  database: 'bakery_tiennld',
   entities: ['dist/**/*.entity.js'],
   migrations: ['dist/db/migrations/*.js'],
   synchronize: false,
