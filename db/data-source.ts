@@ -1,7 +1,7 @@
-import { envConfig } from 'config/env.config';
+import { config } from 'dotenv';
 import { DataSourceOptions, DataSource } from 'typeorm';
 
-envConfig();
+config();
 
 export const dataSourceOptions: DataSourceOptions = {
   type: 'mysql',
