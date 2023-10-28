@@ -1,11 +1,15 @@
+import { envConfig } from 'config/env.config';
 import { DataSourceOptions, DataSource } from 'typeorm';
+
+envConfig();
+
 export const dataSourceOptions: DataSourceOptions = {
   type: 'mysql',
-  host: 'localhost',
-  port: 33061,
-  username: 'root',
-  password: 'root',
-  database: 'bakery-mysql',
+  host: process.env.DB_URL,
+  port: Number(process.env.DB_PORT),
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
   entities: ['dist/**/*.entity.js'],
   migrations: ['dist/db/migrations/*.js'],
   synchronize: false,

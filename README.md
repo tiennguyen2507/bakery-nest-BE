@@ -77,3 +77,9 @@ Nest is [MIT licensed](LICENSE).
 Docket create database my-sql
 
 docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=root -p 33061:3306 -v D:/mySql -d mysql
+
+# Run migrations
+
+npm run migration:generate db/migrations/[name_magrations]
+
+npm run migration:run
