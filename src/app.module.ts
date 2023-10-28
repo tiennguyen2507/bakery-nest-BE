@@ -9,7 +9,6 @@ const DataBaseModule = TypeOrmModule.forRoot(dataSourceOptions);
 
 @Module({
   imports: [ConfigModule.forRoot(), DataBaseModule],
-
   controllers: [AppController],
   providers: [AppService],
 })
