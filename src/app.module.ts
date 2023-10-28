@@ -8,13 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 const DataBaseModule = TypeOrmModule.forRoot(dataSourceOptions);
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      envFilePath: ['.env', '.env.local', 'env.production'],
-      isGlobal: true,
-    }),
-    DataBaseModule,
-  ],
+  imports: [ConfigModule.forRoot(), DataBaseModule],
 
   controllers: [AppController],
   providers: [AppService],
