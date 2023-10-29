@@ -33,6 +33,7 @@ export class UserService {
         'status',
         'created_at',
         'updated_at',
+        'avatar',
       ],
     });
     const lastPage = Math.ceil(total / items_per_page);
