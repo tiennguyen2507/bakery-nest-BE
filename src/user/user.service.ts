@@ -60,4 +60,8 @@ export class UserService {
   async delete(id: string): Promise<DeleteResult> {
     return await this.useRepository.delete(id);
   }
+
+  async updateAvatar(id: number, avatar: string): Promise<UpdateResult> {
+    return await this.useRepository.update(id, { avatar });
+  }
 }
