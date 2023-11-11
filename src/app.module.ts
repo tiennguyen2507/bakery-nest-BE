@@ -3,12 +3,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { dataSourceOptions } from 'db/data-source';
+import { dbOptions } from 'db/data-source';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { PostModule } from './post/post.module';
 
-const DataBaseModule = TypeOrmModule.forRoot(dataSourceOptions);
+const DataBaseModule = TypeOrmModule.forRoot(dbOptions());
 
 @Module({
   imports: [

@@ -15,7 +15,6 @@ export class AuthService {
     private jwtService: JwtService,
     private configService: ConfigService,
   ) {}
-
   private async hassPassword(password: string): Promise<string> {
     const salfRound = 10;
     const salf = await bcrypt.genSalt(salfRound);
@@ -87,5 +86,20 @@ export class AuthService {
         HttpStatus.BAD_REQUEST,
       );
     }
+  }
+
+  async authInfo(id: number) {
+    return this.useRepository.findOne({
+      where: { id },
+      select: [
+        'id',
+        'firstName',
+        'email',
+        'status',
+        'created_at',
+        'updated_at',
+        'avatar',
+      ],
+    });
   }
 }
