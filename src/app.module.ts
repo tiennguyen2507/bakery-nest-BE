@@ -11,7 +11,13 @@ import { PostModule } from './post/post.module';
 const DataBaseModule = TypeOrmModule.forRoot(dataSourceOptions);
 
 @Module({
-  imports: [ConfigModule.forRoot(), DataBaseModule, UserModule, AuthModule, PostModule],
+  imports: [
+    ConfigModule.forRoot(),
+    DataBaseModule,
+    UserModule,
+    AuthModule,
+    PostModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
