@@ -29,6 +29,7 @@ export class UserService {
       select: [
         'id',
         'firstName',
+        'lastName',
         'email',
         'status',
         'created_at',

@@ -93,6 +93,7 @@ export class AuthService {
       where: { id },
       select: [
         'id',
+        'lastName',
         'firstName',
         'email',
         'status',
