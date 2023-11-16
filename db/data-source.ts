@@ -1,11 +1,12 @@
 import { DataSourceOptions, DataSource } from 'typeorm';
+
 export const dataSourceOptions: DataSourceOptions = {
   type: 'mysql',
-  host: 'db4free.net',
+  host: 'sql.freedb.tech',
   port: 3306,
-  username: 'tiennld',
-  password: '12345678',
-  database: 'bakery_tiennld',
+  username: 'freedb_tiennld',
+  password: 'Z5t!X$7u#Zhqdef',
+  database: 'freedb_bakery_nest',
   entities: ['dist/**/*.entity.js'],
   migrations: ['dist/db/migrations/*.js'],
   synchronize: false,
