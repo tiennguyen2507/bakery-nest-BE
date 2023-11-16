@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   OneToMany,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -33,12 +34,12 @@ export class User {
   @Column({ default: 1 })
   status: number;
 
+  @OneToMany(() => Post, (post) => post.user)
+  posts: Post[];
+
   @CreateDateColumn()
   created_at: Date;
 
-  @CreateDateColumn()
+  @UpdateDateColumn()
   updated_at: Date;
-
-  @OneToMany(() => Post, (post) => post.user)
-  posts: Post[];
 }

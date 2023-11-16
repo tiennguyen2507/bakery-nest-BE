@@ -7,6 +7,7 @@ import { dbOptions } from 'db/data-source';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { PostModule } from './post/post.module';
+import { BakeryModule } from './bakery/bakery.module';
 
 const DataBaseModule = TypeOrmModule.forRoot(dbOptions());
 
@@ -17,6 +18,7 @@ const DataBaseModule = TypeOrmModule.forRoot(dbOptions());
     UserModule,
     AuthModule,
     PostModule,
+    BakeryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

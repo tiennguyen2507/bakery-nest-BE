@@ -9,6 +9,7 @@ const swaggerConfig = (app: INestApplication): void => {
     .addTag('Auth')
     .addTag('Users')
     .addTag('Posts')
+    .addTag('Bakery')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
