@@ -31,7 +31,7 @@ export class BakeryController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.bakeryService.findOne(+id);
+    return this.bakeryService.findOne(id);
   }
 
   @Patch(':id')
@@ -41,6 +41,6 @@ export class BakeryController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.bakeryService.remove(+id);
+    return this.bakeryService.remove(id);
   }
 }

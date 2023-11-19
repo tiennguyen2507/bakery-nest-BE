@@ -25,16 +25,15 @@ export class BakeryService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} bakery`;
+  findOne(id: string) {
+    return this.bakeryRepository.findOneBy({ id });
   }
 
   update(id: number, updateBakeryDto: UpdateBakeryDto) {
-    console.log(updateBakeryDto);
-    return `This action updates a #${id} bakery`;
+    return this.bakeryRepository.update(id, updateBakeryDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} bakery`;
+  remove(id: string) {
+    return this.bakeryRepository.delete(id);
   }
 }
