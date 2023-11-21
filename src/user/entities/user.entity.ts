@@ -1,3 +1,4 @@
+import { Cart } from 'src/cart/entities/cart.entity';
 import { Post } from 'src/post/entities/post.entity';
 import {
   Entity,
@@ -42,4 +43,7 @@ export class User {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => Cart, (card) => card.user)
+  cart: Cart[];
 }
