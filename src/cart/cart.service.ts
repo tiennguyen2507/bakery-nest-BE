@@ -17,7 +17,7 @@ export class CartService {
     return this.cartRepository.find({
       where: { userID },
       relations: {
-        bakery: true,
+        product: true,
       },
     });
   }

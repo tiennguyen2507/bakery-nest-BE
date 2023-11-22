@@ -2,22 +2,22 @@ import { Injectable } from '@nestjs/common';
 import { CreateBakeryDto } from './dto/create-bakery.dto';
 import { UpdateBakeryDto } from './dto/update-bakery.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Bakery } from './entities/bakery.entity';
 import { Repository } from 'typeorm';
 import { pagination } from 'helpers';
 import { FilterBakeryDto } from './dto/filter-bakery.dto';
+import { Product } from './entities/product.entity';
 
 @Injectable()
-export class BakeryService {
+export class ProductService {
   constructor(
-    @InjectRepository(Bakery) private bakeryRepository: Repository<Bakery>,
+    @InjectRepository(Product) private bakeryRepository: Repository<Product>,
   ) {}
   create(createBakeryDto: CreateBakeryDto) {
     return this.bakeryRepository.save(createBakeryDto);
   }
 
   async findAll({ items_per_page, page, search }: FilterBakeryDto) {
-    return await pagination<Bakery>(this.bakeryRepository, {
+    return await pagination<Product>(this.bakeryRepository, {
       items_per_page,
       page,
       search,

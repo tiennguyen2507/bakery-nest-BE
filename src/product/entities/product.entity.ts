@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Bakery {
+export class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -35,6 +35,6 @@ export class Bakery {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @OneToMany(() => Cart, (card) => card.bakery)
+  @OneToMany(() => Cart, (card) => card.product)
   cart?: Cart[];
 }

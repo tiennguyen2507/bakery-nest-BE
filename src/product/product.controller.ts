@@ -8,16 +8,16 @@ import {
   Delete,
   Query,
 } from '@nestjs/common';
-import { BakeryService } from './bakery.service';
 import { CreateBakeryDto } from './dto/create-bakery.dto';
 import { UpdateBakeryDto } from './dto/update-bakery.dto';
 import { FilterBakeryDto } from './dto/filter-bakery.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { ProductService } from './product.service';
 
-@ApiTags('Bakery')
-@Controller('bakery')
-export class BakeryController {
-  constructor(private readonly bakeryService: BakeryService) {}
+@ApiTags('Product')
+@Controller('product')
+export class ProductController {
+  constructor(private readonly bakeryService: ProductService) {}
 
   @Post()
   create(@Body() createBakeryDto: CreateBakeryDto) {

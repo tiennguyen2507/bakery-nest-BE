@@ -1,4 +1,4 @@
-import { Bakery } from 'src/bakery/entities/bakery.entity';
+import { Product } from 'src/product/entities/product.entity';
 import { User } from 'src/user/entities/user.entity';
 import {
   Column,
@@ -18,7 +18,7 @@ export class Cart {
   @Column({ name: 'user_id' })
   userID: string;
 
-  @Column({ name: 'bakery_id' })
+  @Column({ name: 'product_id' })
   bakeryID: string;
 
   @CreateDateColumn()
@@ -27,9 +27,9 @@ export class Cart {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => Bakery, (bakery) => bakery.cart)
-  @JoinColumn({ name: 'bakery_id', referencedColumnName: 'id' })
-  bakery?: Bakery;
+  @ManyToOne(() => Product, (bakery) => bakery.cart)
+  @JoinColumn({ name: 'product_id', referencedColumnName: 'id' })
+  product?: Product;
 
   @ManyToOne(() => User, (user) => user.cart)
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
