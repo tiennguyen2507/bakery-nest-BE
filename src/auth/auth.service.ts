@@ -31,7 +31,7 @@ export class AuthService {
     });
   }
 
-  private async generateToken(payload: { id: number; email: string }) {
+  private async generateToken(payload: { id: string; email: string }) {
     const access_token = await this.jwtService.signAsync(payload);
     const refresh_token = await this.jwtService.signAsync(payload, {
       secret: this.configService.get<string>('JWT_SECRET'),
@@ -88,7 +88,7 @@ export class AuthService {
     }
   }
 
-  async authInfo(id: number) {
+  async authInfo(id: string) {
     return this.useRepository.findOne({
       where: { id },
       select: [

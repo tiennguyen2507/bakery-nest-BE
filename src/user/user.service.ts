@@ -45,7 +45,7 @@ export class UserService {
     return { data: res, total, currenPage: page, nextPage, prevPage };
   }
 
-  async findOne(id: number): Promise<User> {
+  async findOne(id: string): Promise<User> {
     return await this.useRepository.findOneBy({ id });
   }
 
@@ -54,7 +54,7 @@ export class UserService {
   }
 
   async update(
-    id: number,
+    id: string,
     updateUserDto: UpdateUserDto,
   ): Promise<UpdateResult> {
     return await this.useRepository.update(id, updateUserDto);

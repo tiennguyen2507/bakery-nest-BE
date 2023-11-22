@@ -43,7 +43,7 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<User> {
-    return this.userService.findOne(Number(id));
+    return this.userService.findOne(id);
   }
 
   @Post()
@@ -56,7 +56,7 @@ export class UserController {
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<UpdateResult> {
-    return this.userService.update(Number(id), updateUserDto);
+    return this.userService.update(id, updateUserDto);
   }
 
   @Delete(':id')
