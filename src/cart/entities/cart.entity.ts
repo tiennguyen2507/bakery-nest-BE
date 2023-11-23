@@ -19,13 +19,16 @@ export class Cart {
   userID: string;
 
   @Column({ name: 'product_id' })
-  bakeryID: string;
+  productID: string;
+
+  @Column({ type: 'integer' })
+  amount: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+  created_at: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updated_at: Date;
 
   @ManyToOne(() => Product, (bakery) => bakery.cart)
   @JoinColumn({ name: 'product_id', referencedColumnName: 'id' })

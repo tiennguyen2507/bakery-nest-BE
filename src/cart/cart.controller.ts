@@ -24,14 +24,15 @@ export class CartController {
 
   @UseGuards(AuthGuard)
   @Post()
-  create(@Req() req: Request, @Body() { bakeryID }: CreateCartDto) {
-    return this.cartService.create(req['user_data'].id, bakeryID);
+  create(@Req() req: Request, @Body() createCartDto: CreateCartDto) {
+    const userID = req['user_data'].id;
+    return this.cartService.create({ ...createCartDto, userID });
   }
 
   @UseGuards(AuthGuard)
   @Get()
-  getBakery(@Req() req: Request) {
-    return this.cartService.getBakery(req['user_data'].id);
+  getAll(@Req() req: Request) {
+    return this.cartService.getAll(req['user_data'].id);
   }
 
   @Get(':id')

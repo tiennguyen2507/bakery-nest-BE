@@ -3,23 +3,40 @@ import { UpdateCartDto } from './dto/update-cart.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cart } from './entities/cart.entity';
 import { Repository } from 'typeorm';
+import { DataCartCreate } from './dto/create-cart.dto';
 
 @Injectable()
 export class CartService {
   constructor(
     @InjectRepository(Cart) private cartRepository: Repository<Cart>,
   ) {}
-  create(userID: string, bakeryID: string) {
-    return this.cartRepository.save({ userID, bakeryID });
+  async create(data: DataCartCreate) {
+    const resuft = await this.cartRepository.findOne({
+      where: { productID: data.productID, userID: data.userID },
+    });
+
+    if (resuft) {
+      return this.cartRepository.update(resuft.id, {
+        ...data,
+        amount: data.amount + resuft.amount,
+      });
+    } else {
+      return this.cartRepository.save(data);
+    }
   }
 
-  getBakery(userID: string) {
-    return this.cartRepository.find({
+  async getAll(userID: string) {
+    const data = await this.cartRepository.find({
       where: { userID },
-      relations: {
-        product: true,
-      },
+      relations: { product: true },
+      select: ['product', 'created_at', 'updated_at', 'amount'],
     });
+    return data?.map(({ product, created_at, updated_at, amount }) => ({
+      ...product,
+      created_at,
+      updated_at,
+      amount,
+    }));
   }
 
   findOne(id: number) {
