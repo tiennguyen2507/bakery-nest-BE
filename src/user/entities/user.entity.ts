@@ -1,11 +1,8 @@
-import { Cart } from 'src/cart/entities/cart.entity';
-import { Post } from 'src/post/entities/post.entity';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  OneToMany,
   UpdateDateColumn,
 } from 'typeorm';
 
@@ -35,15 +32,9 @@ export class User {
   @Column({ default: 1 })
   status: number;
 
-  @OneToMany(() => Post, (post) => post.user)
-  posts: Post[];
-
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
   updated_at: Date;
-
-  @OneToMany(() => Cart, (card) => card.user)
-  cart: Cart[];
 }

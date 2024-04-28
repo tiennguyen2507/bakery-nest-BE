@@ -5,7 +5,6 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -30,11 +29,9 @@ export class Cart {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @ManyToOne(() => Product, (bakery) => bakery.cart)
   @JoinColumn({ name: 'product_id', referencedColumnName: 'id' })
   product?: Product;
 
-  @ManyToOne(() => User, (user) => user.cart)
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
   user?: User;
 }

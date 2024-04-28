@@ -1,10 +1,8 @@
 import { Size } from 'enum';
-import { Cart } from 'src/cart/entities/cart.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -34,7 +32,4 @@ export class Product {
 
   @UpdateDateColumn()
   updated_at: Date;
-
-  @OneToMany(() => Cart, (card) => card.product)
-  cart?: Cart[];
 }

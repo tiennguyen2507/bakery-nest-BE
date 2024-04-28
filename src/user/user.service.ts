@@ -35,7 +35,6 @@ export class UserService {
         'created_at',
         'updated_at',
         'avatar',
-        'cart',
       ],
     });
     const lastPage = Math.ceil(total / items_per_page);

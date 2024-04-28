@@ -44,17 +44,6 @@ export class PostService {
       order: { created_at: 'DESC' },
       take: items_per_page,
       skip,
-      relations: {
-        user: true,
-      },
-      select: {
-        user: {
-          id: true,
-          firstName: true,
-          lastName: true,
-          avatar: true,
-        },
-      },
     });
 
     const lastPage = Math.ceil(total / items_per_page);
@@ -68,15 +57,6 @@ export class PostService {
     return this.postRepository.findOne({
       where: { id },
       relations: ['user'],
-      select: {
-        user: {
-          id: true,
-          firstName: true,
-          lastName: true,
-          email: true,
-          avatar: true,
-        },
-      },
     });
   }
 

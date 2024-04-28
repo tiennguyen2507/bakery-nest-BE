@@ -100,7 +100,6 @@ export class AuthService {
         'created_at',
         'updated_at',
         'avatar',
-        'cart',
       ],
     });
   }

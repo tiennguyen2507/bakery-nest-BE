@@ -11,6 +11,7 @@ const swaggerConfig = (app: INestApplication): void => {
     .addTag('Posts')
     .addTag('Product')
     .addTag('Card')
+    .addTag('Cats')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
